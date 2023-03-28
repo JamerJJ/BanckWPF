@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BIZ
 {
-    public class Class1
+    class Person
     {
+
+
     }
 }
