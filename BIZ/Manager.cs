@@ -8,5 +8,7 @@ namespace BIZ
 {
     class Manager
     {
+
+
     }
 }
