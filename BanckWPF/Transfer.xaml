@@ -5,8 +5,191 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BanckWPF"
         mc:Ignorable="d"
-        Title="Transfer" Height="450" Width="800">
+        Title="Transfer" 
+        Height="400" 
+        Width="550"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        WindowStyle="None">
+
+
+    <Window.Resources>
+
+        <!--//BEGIN MENU//-->
+        <Style x:Key="Main_MenuItem"
+               TargetType="MenuItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Border x:Name="border"
+                                Background="#363435"
+                                BorderThickness="0">
+                            <Grid>
+                                <!--// Icon //-->
+                                <ContentPresenter ContentSource="Icon"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Center"
+                                                  Height="22"
+                                                  Width="22"
+                                                  Margin="8,0,0,0" />
+                                <!--// Text //-->
+                                <ContentPresenter ContentSource="Header"
+                                                  TextBlock.Foreground="#D3D7DC"
+                                                  TextBlock.FontFamily="Rubik Medium"
+                                                  TextBlock.FontSize="15"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Center"
+                                                  Margin="40,0,0,0" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="#524E4F" />
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="#524E4F" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--//END MENU//-->
+
+        <!--//BEGIN EXIT ICON//-->
+        <ImageBrush x:Key="close_def"
+                    ImageSource="Assets/img_shutdown_def.png"
+                    Stretch="None" />
+
+
+        <ImageBrush x:Key="close_mo"
+                    ImageSource="Assets/img_shutdown_mo.png"
+                    Stretch="None" />
+
+        <Style x:Key="CloseAppStyle"
+               TargetType="{x:Type Button}">
+
+            <Setter Property="Height"
+                    Value="25" />
+            <Setter Property="Width"
+                    Value="25" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Right" />
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+            <Setter Property="Margin"
+                    Value="0,35,35,0" />
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Border x:Name="border"
+                                BorderThickness="0"
+                                Background="{StaticResource close_def}" />
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource close_mo}" />
+
+                            </Trigger>
+
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource close_mo}" />
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--//END EXIT//-->
+
+
+
+    </Window.Resources>
+
+
     <Grid>
-        
+
+        <Border Height="400"
+                Width="550"
+                CornerRadius="25"
+                Background="#524E4F">
+            <Border.Effect>
+                <DropShadowEffect Color="#000000"
+                                  Opacity="0.5"
+                                  Direction="90"
+                                  ShadowDepth="2"
+                                  BlurRadius="35" />
+            </Border.Effect>
+        </Border>
+
+        <Border Height="30"
+                Width="500"
+                Background="#363435"
+                BorderBrush="#363435"
+                BorderThickness="3"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,35,0,0"
+                CornerRadius="5" />
+
+        <Menu Height="30"
+              Width="500"
+              Background="#363435"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Center"
+              Margin="0,35,0,0">
+
+
+            <MenuItem Header="FILE"
+                      Height="30"
+                      Width="100"
+                      Style="{StaticResource Main_MenuItem}">
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_home.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+
+            </MenuItem>
+
+            <MenuItem Header="FILE 2"
+                      Height="30"
+                      Width="100"
+                      Style="{StaticResource Main_MenuItem}">
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+
+        <Button x:Name="Close_App"      
+                Style="{StaticResource CloseAppStyle}"
+                Click="Close_App_Click" />
+
+
     </Grid>
+    
 </Window>

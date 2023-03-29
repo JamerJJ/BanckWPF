@@ -23,5 +23,17 @@ namespace BanckWPF
         {
             InitializeComponent();
         }
+
+        private void Close_App_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
