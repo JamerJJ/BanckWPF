@@ -173,5 +173,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img_about_us.png" />
+    <Resource Include="Assets\img_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img_shutdown_mo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img_shutdown_def.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
