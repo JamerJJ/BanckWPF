@@ -9,11 +9,11 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    class AddPeople : DAO
+    public class AddPeople : DAO
     {
         /*Methods for Add manager and user*/
 
-        public void AddNames(string fn, string sn, string email, int ph, string adr1, string adr2, string city, string cy, int accType, string accNum, int sc, int inicBal, double overLimit)
+        public void AddNewAcc(string fn, string sn, string email, int ph, string adr1, string adr2, string city, string cy, int accType, string accNum, int sc, int inicBal, double overLimit)
         {
             string insert = "INSERT INTO tbNewAccount(Firstname, Surname, Email, Phone, Address1, Address2, City, County, AccountType, AccountNumber, SortCode, InicialBalance, OverdraftLimit) VALUES (@fn, @sn, @email, @ph, @adr1, @adr2, @city, @cy, @accType, @accNum, @sc, @inicBal, @overLimit)";
             SqlCommand cmd = new SqlCommand(insert, OpenCon());

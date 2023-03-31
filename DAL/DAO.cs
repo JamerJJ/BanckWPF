@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace DAL
 {
-    class DAO
+    public class DAO
     {
         SqlConnection con;
 

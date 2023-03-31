@@ -230,7 +230,8 @@
 
 
     <Grid>
-
+        
+        
         <Border Height="400"
                 Width="550"
                 CornerRadius="25"
@@ -242,6 +243,7 @@
                                   ShadowDepth="2"
                                   BlurRadius="35" />
             </Border.Effect>
+            
         </Border>
 
         <Border Height="30"
@@ -296,8 +298,10 @@
                FontSize="30"
                FontWeight="Bold"/>
 
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" 
-                 Height="40" Margin="204,164,0,0" 
+        <TextBox x:Name="txtUser" 
+                 HorizontalAlignment="Left" 
+                 Height="40" 
+                 Margin="204,164,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Width="150" 
@@ -306,6 +310,8 @@
                  Text="Username"
                  TextAlignment="Center"
                  VerticalContentAlignment="Center"
+                 GotFocus="TextBox_GotFocus" 
+                 InputScope="Default"                
                  Foreground="Gray"
                  FontSize="20"
                  />
@@ -319,7 +325,8 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="60"
-                FontSize="20" Style="{DynamicResource RoundedButtonStyle}"/>
+                FontSize="20" 
+                Style="{DynamicResource RoundedButtonStyle}" Click="btnLogin_Click"/>
 
         <Button x:Name="btnRegister" 
                 Content="Register" 
@@ -331,7 +338,8 @@
                 Foreground="White" 
                 Click="btnRegister_Click" 
                 Height="60"
-                FontSize="20" Style="{DynamicResource RoundedButtonStyle2}"/>
+                FontSize="20" 
+                Style="{DynamicResource RoundedButtonStyle2}"/>
 
         <PasswordBox x:Name="lblPass" HorizontalAlignment="Left" 
                      Margin="204,228,0,0" 
@@ -342,7 +350,7 @@
                      Background="#FFEDFF7A" 
                      Password="Password"
                      HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"/>
+                     VerticalContentAlignment="Center" GotFocus="lblPass_GotFocus"/>
 
         <Button x:Name="Close_App"      
                 Style="{StaticResource CloseAppStyle}"

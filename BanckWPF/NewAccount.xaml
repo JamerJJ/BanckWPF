@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:BanckWPF"
         mc:Ignorable="d"
         Title="NewAccount" 
-        Height="400" 
-        Width="550"
+        Height="650" 
+        Width="700"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -121,6 +121,63 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="20" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#EAB01E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#EAB01E"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#F1CA68"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F1CA68"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <!--//END EXIT//-->
 
@@ -131,8 +188,8 @@
 
 
     <Grid>
-        <Border Height="400"
-                Width="550"
+        <Border Height="650"
+                Width="700"
                 CornerRadius="25"
                 Background="#524E4F">
             <Border.Effect>
@@ -189,10 +246,268 @@
                 Click="Close_App_Click" />
 
 
+        <Label Content="New Account" 
+               HorizontalAlignment="Left" 
+               Margin="250,70,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="30"
+               FontWeight="Bold"/>
+
+        <TextBox x:Name="txtFn" 
+                 HorizontalAlignment="Left" 
+                 Height="30" 
+                 Margin="35,169,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="270" 
+                 MinWidth="120" 
+                 Background="#FFEDFF7A" 
+                 TextAlignment="Left"
+                 VerticalContentAlignment="Center"               
+                 Foreground="Gray"
+                 FontSize="20"
+                 />
+
+        <Label Content="Firstname" 
+               HorizontalAlignment="Left" 
+               Margin="35,132,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"
+               />
+        <TextBox x:Name="txtSn" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="395,169,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <TextBox x:Name="txtEmail" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="35,253,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <TextBox x:Name="txtPh" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="395,253,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <TextBox x:Name="txtAdd1" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="35,333,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <TextBox x:Name="txtAdd2" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="395,333,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+
+        <TextBox x:Name="txtInicialBal" 
+            HorizontalAlignment="Left"
+            Text="Minimum of €50,00"
+            Height="30" 
+            Margin="395,507,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20" 
+            GotFocus="txtInicialBal_GotFocus"/>
+
+        <Label Content="Surname" 
+            HorizontalAlignment="Left" 
+            Margin="395,132,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="Phone" 
+            HorizontalAlignment="Left" 
+            Margin="395,216,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="Address 2" 
+            HorizontalAlignment="Left" 
+            Margin="395,296,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="County" 
+            HorizontalAlignment="Left" 
+            Margin="395,383,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="Inicial Balance" 
+            HorizontalAlignment="Left" 
+            Margin="395,470,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="Email" 
+            HorizontalAlignment="Left" 
+            Margin="35,216,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="Address 1" 
+            HorizontalAlignment="Left" 
+            Margin="35,296,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="City" 
+            HorizontalAlignment="Left" 
+            Margin="35,383,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <Label Content="Account Type" 
+            HorizontalAlignment="Left" 
+            Margin="35,470,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <TextBox x:Name="txtCity" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="35,420,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <ComboBox x:Name="cboCy" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="395,420,0,0" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <RadioButton x:Name="rdoCurrent"
+                     Content="Current" 
+                     HorizontalAlignment="Left" 
+                     Margin="35,400,0,0" 
+                     VerticalAlignment="Center"
+                     Foreground="White"
+                     FontSize="20" 
+                     Height="30" IsChecked="True"
+                     />
+
+        <RadioButton x:Name="rdoSavings"
+                     Content="Savings" 
+                     HorizontalAlignment="Left" 
+                     Margin="150,400,0,0" 
+                     VerticalAlignment="Center"
+                     Foreground="White"
+                     FontSize="20" 
+                     Height="30"
+                     />
+
+        <Button x:Name="btnNewAccount" 
+                Content="Create Acc" 
+                HorizontalAlignment="Left" 
+                Margin="280,575,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="60"
+                FontSize="20" 
+                Style="{DynamicResource RoundedButtonStyle}" Click="btnNewAccount_Click" 
+                />
 
 
 
 
     </Grid>
-    
+
 </Window>

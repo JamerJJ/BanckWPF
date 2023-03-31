@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace DAL
 {
-    internal class HashCode
+    public class HashCode
     {
         public string PassHash(string data)
         {

@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DAL;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace BanckWPF
 {
@@ -24,6 +28,9 @@ namespace BanckWPF
         {
             InitializeComponent();
         }
+
+        DAO dao = new DAO();
+        HashCode hc = new HashCode();
 
         private void closeApp(object sender, MouseButtonEventArgs e)
         {
@@ -46,6 +53,55 @@ namespace BanckWPF
         {
             Register r = new Register();
             r.Show();
+        }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            if(textbox.Text == "Username")
+            {
+                textbox.Text = "";
+            }
+        }
+
+        private void lblPass_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox passwordbox = sender as PasswordBox;
+            if (passwordbox.Password == "Password")
+            {
+                passwordbox.Password = "";
+            }
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string user = txtUser.Text;
+            string pass = hc.PassHash(lblPass.Password);
+
+            SqlCommand cmd = dao.OpenCon().CreateCommand();
+            cmd.CommandText = "uspLogin";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@un", user);
+            cmd.Parameters.AddWithValue("@pw", pass);
+
+            SqlDataReader dr = null;
+            dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                MessageBox.Show("Logged in");
+                txtUser.IsEnabled = false;
+                lblPass.IsEnabled = false;
+
+                txtUser.Clear();
+                lblPass.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Invalid");
+            }
+            dao.CloseCon();
         }
     }
 }
