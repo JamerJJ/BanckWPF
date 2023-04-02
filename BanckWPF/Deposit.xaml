@@ -187,5 +187,104 @@
                 Style="{StaticResource CloseAppStyle}"
                 Click="Close_App_Click" />
 
+
+        <Label Content="Deposit" 
+               HorizontalAlignment="Left" 
+               Margin="211,70,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="30"
+               FontWeight="Bold"/>
+
+
+        <Label Content="Account Number" 
+               HorizontalAlignment="Left" 
+               Margin="35,132,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"/>
+
+        <ComboBox x:Name="cboAccNum" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="201,139,0,0" 
+            VerticalAlignment="Top" 
+            Width="324" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <Label x:Name="lblDisplayName"
+               Height="30"
+               HorizontalAlignment="Left" 
+               Margin="35,196,0,0" 
+               VerticalAlignment="Top" 
+               Background="#FFEDFF7A" 
+               Foreground="White"
+               FontSize="20" Width="490"/>
+
+        <Label Content="Deposit Amount" 
+               HorizontalAlignment="Left" 
+               Margin="35,255,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"/>
+
+        <TextBox x:Name="txtDeposit" 
+                 HorizontalAlignment="Left" 
+                 Height="30" 
+                 Margin="201,262,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="324" 
+                 MinWidth="120" 
+                 Background="#FFEDFF7A" 
+                 TextAlignment="Left"
+                 VerticalContentAlignment="Center"               
+                 Foreground="Gray"
+                 FontSize="20"
+                 />
+
+        <Button x:Name="btnDeposit" 
+                Content="Deposit" 
+                HorizontalAlignment="Left" 
+                Margin="405,313,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="60"
+                FontSize="20" 
+                 
+                />
+
+        <Label Content="Balance" 
+               HorizontalAlignment="Left" 
+               Margin="35,324,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"/>
+
+        <Label x:Name="lblDisplayBalance"
+               Height="30"
+               HorizontalAlignment="Left" 
+               Margin="118,331,0,0" 
+               VerticalAlignment="Top" 
+               Background="#FFEDFF7A" 
+               Foreground="White"
+               FontSize="20" Width="257"/>
+
+
+
+
+
+
+
     </Grid>
 </Window>
