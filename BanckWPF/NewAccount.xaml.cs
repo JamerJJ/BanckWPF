@@ -26,7 +26,7 @@ namespace BanckWPF
             InitializeComponent();
         }
 
-        AddPeople ap;
+        AddPeople ap =  new AddPeople();
 
         private void Close_App_Click(object sender, RoutedEventArgs e)
         {
@@ -55,8 +55,8 @@ namespace BanckWPF
             string sn = txtSn.Text;
             string email = txtEmail.Text;
             string ph = txtPh.Text;
-            string add1 = txtAdd1.Text;
-            string add2 = txtAdd2.Text;
+            string adr1 = txtAdd1.Text;
+            string adr2 = txtAdd2.Text;
             string city = txtCity.Text;
             string cy = cboCy.SelectedItem.ToString();
             int sc = 101010;
@@ -64,10 +64,10 @@ namespace BanckWPF
 
             /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
             decimal iniBal = decimal.Parse(txtInicialBal.Text);
-            if (iniBal < 50)
+            if (iniBal < 50) //test the minimum amount to open an account
             {
                 MessageBox.Show("Invalid Amount");
-                txtInicialBal.Clear();
+                txtInicialBal.Clear(); // clear the box to prevent incorrect value
             }
        
             int accType = 01; //01 for current account -- 02 for savings account
@@ -79,7 +79,8 @@ namespace BanckWPF
 
             //Call a method
             //Add o resto dos dados a serem enseridos na DB
-            ap.AddNewAcc(fn, sn, email, ph, add1, add2, city, cy, sc, accNum, iniBal, accType);
+            ap.AddNewAcc(fn, sn, email, ph, city, cy, accType, accNum, sc, iniBal, adr1, adr2);
+            
 
             //Tidy up
             txtFn.Clear();
