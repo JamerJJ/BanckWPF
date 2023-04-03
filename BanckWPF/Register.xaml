@@ -245,7 +245,7 @@
                 Click="Close_App_Click" />
 
 
-        <Label Content="Create and Account" 
+        <Label Content="Create an Account" 
                HorizontalAlignment="Left" 
                Margin="126,70,0,0" 
                VerticalAlignment="Top" 
