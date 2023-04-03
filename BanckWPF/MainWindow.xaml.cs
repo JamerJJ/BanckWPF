@@ -103,5 +103,13 @@ namespace BanckWPF
             }
             dao.CloseCon();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            NewAccount na = new NewAccount();
+            na.Show();
+
+
+        }
     }
 }
