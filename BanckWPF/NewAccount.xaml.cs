@@ -66,13 +66,12 @@ namespace BanckWPF
                 MessageBox.Show("Invalid Amount");
             }
 
-            /* RDOS NAO ESTAO FUNCIONANDO CHECAR O METHOD ISCHECKED 
             string acctype = "Current";
-            if (rdoSavings.IsChecked)
+            if (rdoSavings.IsChecked == true)
             {
                 acctype = "Savings";
             }
-            */
+
 
             //Call a method
             //Add o resto dos dados a serem enseridos na DB

@@ -82,8 +82,8 @@ namespace BanckWPF
             cmd.CommandText = "uspLogin";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@un", user);
-            cmd.Parameters.AddWithValue("@pw", pass);
+            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@pass", pass);
 
             SqlDataReader dr = null;
             dr = cmd.ExecuteReader();

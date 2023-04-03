@@ -60,6 +60,8 @@ namespace BanckWPF
 
             txtUser.Clear();
             txtPass.Clear();
+
+            MessageBox.Show("New User Added!");
         }
     }
 }
