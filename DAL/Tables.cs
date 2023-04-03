@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    enum County
+    public enum County
     {
         Antrim,
         Armagh,

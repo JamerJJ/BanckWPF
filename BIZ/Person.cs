@@ -11,20 +11,19 @@ namespace BIZ
         public string Firstname { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
         public string County { get; set; }
         public int AccountType { get; set; }
-        public string AccountNumber { get; set; }
+        public int AccountNumber { get; set; }
         public int SortCode { get; set; }
-        public int InitialBalance { get; set; }
-        public double OverdraftLimit { get; set; }
+        public decimal InitialBalance { get; set; }
 
 
 
-        public Person(string fn, string sn, string email, int ph, string adr1, string adr2, string city, string cy, int accType, string accNum, int sc, int inicBal, double overLimit)
+        public Person(string fn, string sn, string email, string ph, string adr1, string adr2, string city, string cy, int accType, int accNum, int sc, decimal iniBal)
         {
             Firstname = fn;
             Surname = sn;
@@ -37,8 +36,7 @@ namespace BIZ
             AccountType = accType;
             AccountNumber = accNum;
             SortCode = sc;
-            InitialBalance = inicBal;
-            OverdraftLimit = overLimit;
+            InitialBalance = iniBal;
             
             
         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DAL;
+using System.Data;
 
 namespace BanckWPF
 {
@@ -58,28 +59,36 @@ namespace BanckWPF
             string add2 = txtAdd2.Text;
             string city = txtCity.Text;
             string cy = cboCy.SelectedItem.ToString();
+            int sc = 101010;
+            int accNum = 11111111;
 
             /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
-            decimal bal = decimal.Parse(txtInicialBal.Text);
-            if (bal < 50)
+            decimal iniBal = decimal.Parse(txtInicialBal.Text);
+            if (iniBal < 50)
             {
                 MessageBox.Show("Invalid Amount");
+                txtInicialBal.Clear();
             }
-
-            string acctype = "Current";
+       
+            int accType = 01; //01 for current account -- 02 for savings account
             if (rdoSavings.IsChecked == true)
             {
-                acctype = "Savings";
+                accType = 02;
             }
 
 
             //Call a method
             //Add o resto dos dados a serem enseridos na DB
-            //ap.AddNewAcc(fn, sn,);
+            ap.AddNewAcc(fn, sn, email, ph, add1, add2, city, cy, sc, accNum, iniBal, accType);
 
             //Tidy up
             txtFn.Clear();
             txtSn.Clear();
+        }
+
+        private void cboCy_Loaded(object sender, RoutedEventArgs e)
+        {
+            cboCy.ItemsSource = Enum.GetValues(typeof(County));
         }
     }
 }

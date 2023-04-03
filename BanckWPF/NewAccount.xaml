@@ -470,7 +470,7 @@
             Background="#FFEDFF7A" 
             VerticalContentAlignment="Center"              
             Foreground="Gray"
-            FontSize="20"/>
+            FontSize="20" Loaded="cboCy_Loaded"/>
 
         <RadioButton x:Name="rdoCurrent"
                      Content="Current" 
