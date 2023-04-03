@@ -187,5 +187,92 @@
                 Style="{StaticResource CloseAppStyle}"
                 Click="Close_App_Click" />
 
+        <Label Content="Withdraw"
+               HorizontalAlignment="Left" 
+               Margin="204,70,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="30"
+               FontWeight="Bold"/>
+
+        <Label Content="Account Number"
+               HorizontalAlignment="Left" 
+               Margin="25,126,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"
+               />
+
+        <ComboBox x:Name="cboAccNum"
+                  Height="30"
+                  Margin="191,133,25,237"/>
+
+        <Label x:Name="lblDisplayAcc"
+               Height="50"
+               HorizontalAlignment="Left" 
+               Margin="25,182,0,0" 
+               VerticalAlignment="Top" 
+               Background="#FFEDFF7A" 
+               Foreground="White"
+               FontSize="20" Width="500"/>
+
+        <Label Content="Amount"
+               HorizontalAlignment="Left" 
+               Margin="25,257,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"
+               />
+
+        <TextBox x:Name="txtAmount"
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="136,257,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="389" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <Button x:Name="btnWithdraw"
+                Content="Withdraw"
+                HorizontalAlignment="Left" 
+                Margin="25,319,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="40"
+                FontSize="20">
+
+        </Button>
+
+        <Label Content="New Balance"
+               HorizontalAlignment="Left" 
+               Margin="250,319,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="20"
+               />
+
+        <Label x:Name="lblDisplayName"
+               Height="30"
+               HorizontalAlignment="Left" 
+               Margin="378,319,0,0" 
+               VerticalAlignment="Top" 
+               Background="#FFEDFF7A" 
+               Foreground="White"
+               FontSize="20" Width="147"/>
+
+
+
     </Grid>
 </Window>

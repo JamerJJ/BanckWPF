@@ -189,6 +189,65 @@
                 Style="{StaticResource CloseAppStyle}"
                 Click="Close_App_Click" />
 
+        <Label Content="Transactions"
+               HorizontalAlignment="Left" 
+               Margin="185,65,0,0" 
+               VerticalAlignment="Top" 
+               Background="Transparent" 
+               Foreground="White"
+               FontSize="30"
+               FontWeight="Bold"/>
+        
+
+        <DataGrid Height="100"
+                  Width="500"
+                  Margin="25,132,25,168"
+                  >
+            
+            
+        </DataGrid>
+
+        <Button x:Name="btnAllAcc" 
+                Content="All Accounts" 
+                HorizontalAlignment="Left" 
+                Margin="25,266,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="40"
+                FontSize="15">
+            
+        </Button>
+
+        <Button x:Name="btnAllTran"
+                Content="All Transactions"
+                HorizontalAlignment="Left" 
+                Margin="169,266,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="40"
+                FontSize="15">
+
+        </Button>
+
+        <Button x:Name="btnSearch"
+                Content="Seacrh"
+                HorizontalAlignment="Left" 
+                Margin="25,325,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="40"
+                FontSize="15">
+
+        </Button>
+
+
+
 
     </Grid>
 </Window>

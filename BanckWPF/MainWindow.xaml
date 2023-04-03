@@ -264,10 +264,29 @@
               Margin="0,35,0,0">
 
 
-            <MenuItem Header="FILE"
+            
+
+            <MenuItem x:Name="btnNewAcc" 
+                      Header="New Account"
+                      Height="30"
+                      Width="130"
+                      Style="{StaticResource Main_MenuItem}" Click="MenuItem_Click" 
+                      IsEnabled="False">
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_home.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+
+                
+            </MenuItem>
+
+            <MenuItem x:Name="btnDeposit" 
+                      Header="Deposit"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" 
+                      Click="MenuItem_Click_1"
+                      IsEnabled="False">
                 <MenuItem.Icon>
                     <Image Source="Assets/img_home.png"
                            Stretch="Uniform" />
@@ -275,25 +294,30 @@
 
             </MenuItem>
 
-            <MenuItem Header="FILE 2"
+            <MenuItem x:Name="btnTransfer" 
+                      Header="Transfer"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" 
+                      Click="MenuItem_Click_2"
+                      IsEnabled="False">
                 <MenuItem.Icon>
                     <Image Source="Assets/img_about_us.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Header="FILE"
+            <MenuItem x:Name="btnWithdraw" 
+                      Header="Withdraw"
                       Height="30"
-                      Width="100"
-                      Style="{StaticResource Main_MenuItem}" Click="MenuItem_Click">
+                      Width="110"
+                      Style="{StaticResource Main_MenuItem}" 
+                      Click="MenuItem_Click_3"
+                      IsEnabled="False">
                 <MenuItem.Icon>
-                    <Image Source="Assets/img_home.png"
+                    <Image Source="Assets/img_about_us.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
-
             </MenuItem>
 
         </Menu>

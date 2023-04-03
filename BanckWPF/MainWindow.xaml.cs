@@ -93,6 +93,12 @@ namespace BanckWPF
                 MessageBox.Show("Logged in");
                 txtUser.IsEnabled = false;
                 lblPass.IsEnabled = false;
+                btnNewAcc.IsEnabled = true;
+                btnDeposit.IsEnabled = true;
+                btnTransfer.IsEnabled = true;
+                btnWithdraw.IsEnabled = true;
+                
+
 
                 txtUser.Clear();
                 lblPass.Clear();
@@ -110,6 +116,24 @@ namespace BanckWPF
             na.Show();
 
 
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Deposit d = new Deposit();
+            d.Show();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Transfer t = new Transfer();
+            t.Show();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            Withdraw w = new Withdraw();
+            w.Show();
         }
     }
 }
