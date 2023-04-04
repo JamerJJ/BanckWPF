@@ -133,7 +133,7 @@
         <Border Height="400"
                 Width="550"
                 CornerRadius="25"
-                Background="#524E4F">
+                Background="#524E4F" Loaded="Border_Loaded">
             <Border.Effect>
                 <DropShadowEffect Color="#000000"
                                   Opacity="0.5"
@@ -215,8 +215,7 @@
             MinWidth="120" 
             Background="#FFEDFF7A" 
             VerticalContentAlignment="Center"              
-            Foreground="Gray"
-            FontSize="20"/>
+            Foreground="Gray"/>
 
         <Label x:Name="lblDisplayName"
                Height="30"
@@ -259,7 +258,7 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="60"
-                FontSize="20" 
+                FontSize="20" Click="btnDeposit_Click" 
                  
                 />
 

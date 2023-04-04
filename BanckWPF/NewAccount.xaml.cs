@@ -60,7 +60,9 @@ namespace BanckWPF
             string city = txtCity.Text;
             string cy = cboCy.SelectedItem.ToString();
             int sc = 101010;
-            int accNum = 11111111;
+
+            Random random = new Random();
+            int accNum = random.Next(10000000, 99999999);
 
             /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
             decimal iniBal = decimal.Parse(txtInicialBal.Text);
