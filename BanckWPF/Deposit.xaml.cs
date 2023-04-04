@@ -99,7 +99,7 @@ namespace BanckWPF
 
             while (dr.Read())
             {
-                string balx = dr["InicialBalance"].ToString();
+                string balx = dr["InitialBalance"].ToString();
                 string fn = dr["Firstname"].ToString();
                 string sn = dr["Surname"].ToString();
                 string cy = dr["County"].ToString();
@@ -110,7 +110,7 @@ namespace BanckWPF
             dao.CloseCon();
         }
 
-        private void cboAccNum_Selected(object sender, RoutedEventArgs e)
+        private void cboAccNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GetBalance();
         }

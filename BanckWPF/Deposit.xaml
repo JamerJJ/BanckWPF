@@ -215,7 +215,7 @@
             MinWidth="120" 
             Background="#FFEDFF7A" 
             VerticalContentAlignment="Center"              
-            Foreground="Gray"/>
+            Foreground="Gray" SelectionChanged="cboAccNum_SelectionChanged"/>
 
         <Label x:Name="lblDisplayName"
                Height="30"
