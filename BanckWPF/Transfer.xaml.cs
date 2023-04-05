@@ -44,6 +44,11 @@ namespace BanckWPF
             }
         }
 
+        private void Border_Loaded(object sender, RoutedEventArgs e)
+        {
+            PopulateCombo();
+        }
+
         void PopulateCombo()
         {
             SqlCommand cmd = dao.OpenCon().CreateCommand();
@@ -63,7 +68,6 @@ namespace BanckWPF
 
         void GetBalance()
         {
-            accNum1 = cboFromAccount.SelectedItem.ToString();
             int accNumInt = int.Parse(cboFromAccount.SelectedItem.ToString());// essa linha pq ele pede q isso seja int no db
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspSelBal";
@@ -85,32 +89,8 @@ namespace BanckWPF
             dao.CloseCon();
         }
 
-        private void cboFromAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GetBalance();
-        }
-
-        private void cboToAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GetBalance1();
-        }
-
-        private void Border_Loaded(object sender, RoutedEventArgs e)
-        {
-            PopulateCombo();
-        }
-
-        private void btnTransfer_Click(object sender, RoutedEventArgs e)
-        {
-            FoundsFrom();
-            FoundsTo();
-            MessageBox.Show("Transfer worked!");
-            //clear stuff
-        }
-
         void GetBalance1()
         {
-            accNum2 = cboFromAccount.SelectedItem.ToString();
             int accNumInt = int.Parse(cboToAccount.SelectedItem.ToString());// essa linha pq ele pede q isso seja int no db
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspSelBal";
@@ -126,10 +106,28 @@ namespace BanckWPF
                 string fn = dr["Firstname"].ToString();
                 string sn = dr["Surname"].ToString();
                 string cy = dr["County"].ToString();
-                
+
                 lblDisplayToAcc.Content = fn + " " + sn + " From " + cy + "\n Balance: " + balx;
             }
             dao.CloseCon();
+        }
+
+        private void cboFromAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetBalance();
+        }
+
+        private void cboToAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetBalance1();
+        }
+
+        private void btnTransfer_Click(object sender, RoutedEventArgs e)
+        {
+            FoundsFrom();
+            FoundsTo();
+            MessageBox.Show("Transfer worked!");
+            //clear stuff
         }
 
         void FoundsFrom()

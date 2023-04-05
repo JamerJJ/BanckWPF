@@ -70,8 +70,9 @@ namespace BanckWPF
             {
                 MessageBox.Show("Invalid Amount");
                 txtInicialBal.Clear(); // clear the box to prevent incorrect value
+                iniBal = 0;//nao ta funcionando
             }
-       
+            
             int accType = 01; //01 for current account -- 02 for savings account
             if (rdoSavings.IsChecked == true)
             {
@@ -87,6 +88,14 @@ namespace BanckWPF
             //Tidy up
             txtFn.Clear();
             txtSn.Clear();
+            txtFn.Clear();
+            txtSn.Clear();
+            txtEmail.Clear();
+            txtPh.Clear();
+            txtAdd1.Clear();
+            txtAdd2.Clear();
+            txtCity.Clear();
+            txtInicialBal.Clear();
         }
 
         private void cboCy_Loaded(object sender, RoutedEventArgs e)
