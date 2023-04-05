@@ -163,10 +163,12 @@
               Margin="0,35,0,0">
 
 
-            <MenuItem Header="FILE"
+            <MenuItem x:Name="btnDeposit" 
+                      Header="Deposit"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" Click="btnDeposit_Click" 
+                      >
                 <MenuItem.Icon>
                     <Image Source="Assets/img_home.png"
                            Stretch="Uniform" />
@@ -174,15 +176,42 @@
 
             </MenuItem>
 
-            <MenuItem Header="FILE 2"
+            <MenuItem x:Name="btnTransferMenu" 
+                      Header="Transfer"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" Click="btnTransferMenu_Click" 
+                      >
                 <MenuItem.Icon>
                     <Image Source="Assets/img_about_us.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
             </MenuItem>
+
+            <MenuItem x:Name="btnWithdraw" 
+                      Header="Withdraw"
+                      Height="30"
+                      Width="110"
+                      Style="{StaticResource Main_MenuItem}" Click="btnWithdraw_Click" 
+                      >
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem x:Name="btnTransactions" 
+                      Header="Transactions"
+                      Height="30"
+                      Width="125"
+                      Style="{StaticResource Main_MenuItem}" Click="btnTransactions_Click" 
+                      >
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+            
         </Menu>
 
         <Button x:Name="Close_App"      
@@ -210,7 +239,8 @@
 
         <ComboBox x:Name="cboFromAccount" 
                   Height="30"
-                  Margin="164,133,35,337" SelectionChanged="cboFromAccount_SelectionChanged"/>
+                  Margin="164,133,35,337" 
+                  SelectionChanged="cboFromAccount_SelectionChanged"/>
 
         <Label x:Name="lblDisplayFromAcc"
                Height="50"
@@ -219,7 +249,16 @@
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
                Foreground="White"
-               FontSize="20" Width="490"/>
+               FontSize="20" Width="351"/>
+
+        <Label x:Name="lblDisplayValueFrom"
+               Height="50"
+               HorizontalAlignment="Left" 
+               Margin="381,185,0,0" 
+               VerticalAlignment="Top" 
+               Background="#FFEDFF7A" 
+               Foreground="White"
+               FontSize="20" Width="144"/>
 
 
         <Label Content="Amount"
@@ -256,7 +295,8 @@
 
         <ComboBox x:Name="cboToAccount" 
                   Height="30"
-                  Margin="138,328,35,142" SelectionChanged="cboToAccount_SelectionChanged"/>
+                  Margin="138,328,35,142" 
+                  SelectionChanged="cboToAccount_SelectionChanged"/>
 
         <Label x:Name="lblDisplayToAcc"
                Height="50"
@@ -265,7 +305,16 @@
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
                Foreground="White"
-               FontSize="20" Width="490"/>
+               FontSize="20" Width="351"/>
+
+        <Label x:Name="lblDisplayValueTo"
+               Height="50"
+               HorizontalAlignment="Left" 
+               Margin="381,386,0,0" 
+               VerticalAlignment="Top" 
+               Background="#FFEDFF7A" 
+               Foreground="White"
+               FontSize="20" Width="144"/>
 
         <Button x:Name="btnTransfer"
                 Content="Transfer"

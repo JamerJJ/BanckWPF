@@ -132,6 +132,30 @@ namespace BanckWPF
             dao.CloseCon();
         }
 
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+            Deposit d = new Deposit();
+            d.Show();
+        }
+
+        private void btnTransferMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Transfer t = new Transfer();
+            t.Show();
+        }
+
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        {
+            Withdraw w = new Withdraw();
+            w.Show();
+        }
+
+        private void btnTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            Transactions tr = new Transactions();
+            tr.Show();
+        }
+
         void FoundsFrom()
         {
             accNum1 = cboFromAccount.SelectedItem.ToString();

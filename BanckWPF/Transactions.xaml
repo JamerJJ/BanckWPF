@@ -163,10 +163,12 @@
               Margin="0,35,0,0">
 
 
-            <MenuItem Header="FILE"
+            <MenuItem x:Name="btnDeposit" 
+                      Header="Deposit"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" Click="btnDeposit_Click" 
+                      >
                 <MenuItem.Icon>
                     <Image Source="Assets/img_home.png"
                            Stretch="Uniform" />
@@ -174,10 +176,36 @@
 
             </MenuItem>
 
-            <MenuItem Header="FILE 2"
+            <MenuItem x:Name="btnTransfer" 
+                      Header="Transfer"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" Click="btnTransfer_Click" 
+                      >
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem x:Name="btnWithdraw" 
+                      Header="Withdraw"
+                      Height="30"
+                      Width="110"
+                      Style="{StaticResource Main_MenuItem}" Click="btnWithdraw_Click" 
+                      >
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem x:Name="btnTransactions" 
+                      Header="Transactions"
+                      Height="30"
+                      Width="125"
+                      Style="{StaticResource Main_MenuItem}" Click="btnTransactions_Click" 
+                      >
                 <MenuItem.Icon>
                     <Image Source="Assets/img_about_us.png"
                            Stretch="Uniform" />
@@ -197,14 +225,14 @@
                Foreground="White"
                FontSize="30"
                FontWeight="Bold"/>
-        
+
 
         <DataGrid Height="100"
                   Width="500"
                   Margin="25,132,25,168"
                   >
-            
-            
+
+
         </DataGrid>
 
         <Button x:Name="btnAllAcc" 
@@ -217,7 +245,7 @@
                 Foreground="White" 
                 Height="40"
                 FontSize="15">
-            
+
         </Button>
 
         <Button x:Name="btnAllTran"
@@ -237,6 +265,23 @@
                 Content="Seacrh"
                 HorizontalAlignment="Left" 
                 Margin="25,325,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                Background="#FF282814" 
+                Foreground="White" 
+                Height="40"
+                FontSize="15">
+
+        </Button>
+
+        <ComboBox x:Name="cboAcc"
+                  Margin="169,325,261,35" 
+                  />
+
+        <Button x:Name="btnEdit"
+                Content="Edit Data"
+                HorizontalAlignment="Left" 
+                Margin="315,266,0,0" 
                 VerticalAlignment="Top" 
                 Width="120" 
                 Background="#FF282814" 
