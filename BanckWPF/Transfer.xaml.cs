@@ -107,9 +107,6 @@ namespace BanckWPF
                 string sn = dr["Surname"].ToString();
                 string cy = dr["County"].ToString();
 
-                lblDisplayToAcc.Content = fn + " " + sn + " From " + cy + "\n Balance: " + balx;
-            }
-            dao.CloseCon();
         }
 
         private void btnDeposit_Click(object sender, RoutedEventArgs e)
