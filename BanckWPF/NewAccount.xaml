@@ -219,10 +219,12 @@
               Margin="0,35,0,0">
 
 
-            <MenuItem Header="FILE"
+            <MenuItem x:Name="btnDeposit" 
+                      Header="Deposit"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" IsEnabled="False" 
+                      >
                 <MenuItem.Icon>
                     <Image Source="Assets/img_home.png"
                            Stretch="Uniform" />
@@ -230,15 +232,44 @@
 
             </MenuItem>
 
-            <MenuItem Header="FILE 2"
+            <MenuItem x:Name="btnTransfer" 
+                      Header="Transfer"
                       Height="30"
                       Width="100"
-                      Style="{StaticResource Main_MenuItem}">
+                      Style="{StaticResource Main_MenuItem}" IsEnabled="False" 
+                      >
                 <MenuItem.Icon>
                     <Image Source="Assets/img_about_us.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
             </MenuItem>
+
+            <MenuItem x:Name="btnWithdraw" 
+                      Header="Withdraw"
+                      Height="30"
+                      Width="110"
+                      Style="{StaticResource Main_MenuItem}" IsEnabled="False" 
+                      >
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem x:Name="btnTransactions" 
+                      Header="Transactions"
+                      Height="30"
+                      Width="125"
+                      Style="{StaticResource Main_MenuItem}" IsEnabled="False" 
+                      >
+                <MenuItem.Icon>
+                    <Image Source="Assets/img_about_us.png"
+                           Stretch="Uniform" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+
+
         </Menu>
 
         <Button x:Name="Close_App"      

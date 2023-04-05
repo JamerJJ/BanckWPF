@@ -110,5 +110,29 @@ namespace BanckWPF
         {
             GetBalance();
         }
+
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+            Deposit d = new Deposit();
+            d.Show();
+        }
+
+        private void btnTransfer_Click(object sender, RoutedEventArgs e)
+        {
+            Transfer t = new Transfer();
+            t.Show();
+        }
+
+        private void btnWithdrawMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Withdraw w = new Withdraw();
+            w.Show();
+        }
+
+        private void btnTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            Transactions tr = new Transactions();
+            tr.Show();
+        }
     }
 }

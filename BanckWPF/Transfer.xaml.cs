@@ -112,22 +112,28 @@ namespace BanckWPF
             dao.CloseCon();
         }
 
-        private void cboFromAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
         {
-            GetBalance();
+            Deposit d = new Deposit();
+            d.Show();
         }
 
-        private void cboToAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnTransferMenu_Click(object sender, RoutedEventArgs e)
         {
-            GetBalance1();
+            Transfer t = new Transfer();
+            t.Show();
         }
 
-        private void btnTransfer_Click(object sender, RoutedEventArgs e)
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
         {
-            FoundsFrom();
-            FoundsTo();
-            MessageBox.Show("Transfer worked!");
-            //clear stuff
+            Withdraw w = new Withdraw();
+            w.Show();
+        }
+
+        private void btnTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            Transactions tr = new Transactions();
+            tr.Show();
         }
 
         void FoundsFrom()
