@@ -133,7 +133,7 @@
         <Border Height="400"
                 Width="550"
                 CornerRadius="25"
-                Background="#524E4F">
+                Background="#524E4F" Loaded="Border_Loaded">
             <Border.Effect>
                 <DropShadowEffect Color="#000000"
                                   Opacity="0.5"
@@ -207,9 +207,9 @@
 
         <ComboBox x:Name="cboAccNum"
                   Height="30"
-                  Margin="191,133,25,237"/>
+                  Margin="191,133,25,237" SelectionChanged="cboAccNum_SelectionChanged"/>
 
-        <Label x:Name="lblDisplayAcc"
+        <Label x:Name="lblDisplayName"
                Height="50"
                HorizontalAlignment="Left" 
                Margin="25,182,0,0" 
@@ -250,7 +250,7 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="40"
-                FontSize="20">
+                FontSize="20" Click="btnWithdraw_Click">
 
         </Button>
 
@@ -263,7 +263,7 @@
                FontSize="20"
                />
 
-        <Label x:Name="lblDisplayName"
+        <Label x:Name="lblDisplayAcc"
                Height="30"
                HorizontalAlignment="Left" 
                Margin="378,319,0,0" 
