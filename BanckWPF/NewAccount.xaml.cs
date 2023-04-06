@@ -61,10 +61,6 @@ namespace BanckWPF
             string cy = cboCy.SelectedItem.ToString();
             int sc = 101010;
 
-            //apagar
-            //Random random = new Random();
-            //int accNum = random.Next(10000000, 99999999);
-
             /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
             decimal iniBal = decimal.Parse(txtInicialBal.Text);
             if (iniBal < 50) //test the minimum amount to open an account
@@ -74,10 +70,10 @@ namespace BanckWPF
                 iniBal = 0;//nao ta funcionando
             }
             
-            int accType = 01; //01 for current account -- 02 for savings account
+            string accType = "Current";
             if (rdoSavings.IsChecked == true)
             {
-                accType = 02;
+                accType = "Saving";
             }
 
 

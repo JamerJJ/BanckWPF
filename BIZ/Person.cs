@@ -14,7 +14,7 @@ namespace BIZ
         public string Phone { get; set; }
         public string City { get; set; }
         public string County { get; set; }
-        public int AccountType { get; set; }
+        public string AccountType { get; set; }
         public int SortCode { get; set; }
         public decimal InitialBalance { get; set; }
         public string Address1 { get; set; }
@@ -22,7 +22,7 @@ namespace BIZ
 
 
 
-        public Person(string fn, string sn, string email, string ph, string city, string cy, int accType, int sc, decimal iniBal, string adr1, string adr2)
+        public Person(string fn, string sn, string email, string ph, string city, string cy, string accType, int sc, decimal iniBal, string adr1, string adr2)
         {
             Firstname = fn;
             Surname = sn;
