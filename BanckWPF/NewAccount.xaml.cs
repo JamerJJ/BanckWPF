@@ -61,8 +61,9 @@ namespace BanckWPF
             string cy = cboCy.SelectedItem.ToString();
             int sc = 101010;
 
-            Random random = new Random();
-            int accNum = random.Next(10000000, 99999999);
+            //apagar
+            //Random random = new Random();
+            //int accNum = random.Next(10000000, 99999999);
 
             /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
             decimal iniBal = decimal.Parse(txtInicialBal.Text);
@@ -82,7 +83,7 @@ namespace BanckWPF
 
             //Call a method
             //Add o resto dos dados a serem enseridos na DB
-            ap.AddNewAcc(fn, sn, email, ph, city, cy, accType, accNum, sc, iniBal, adr1, adr2);
+            ap.AddNewAcc(fn, sn, email, ph, city, cy, accType, sc, iniBal, adr1, adr2);
             
 
             //Tidy up
@@ -96,6 +97,8 @@ namespace BanckWPF
             txtAdd2.Clear();
             txtCity.Clear();
             txtInicialBal.Clear();
+
+            MessageBox.Show("New Account Created!");
         }
 
         private void cboCy_Loaded(object sender, RoutedEventArgs e)

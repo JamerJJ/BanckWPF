@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -30,7 +31,6 @@ namespace BanckWPF
         DAO dao = new DAO();
         SqlDataReader dr;
         string accNum1, accNum2;
-        decimal toDecimal, fromDecimal;// need bc the fields are concatonated with strings and i dont want to change the UI
 
         private void Close_App_Click(object sender, RoutedEventArgs e)
         {
@@ -66,9 +66,20 @@ namespace BanckWPF
             dao.CloseCon();
         }
 
+        private void cboFromAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetBalance();
+        }
+
+        private void cboToAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetBalance1();
+        }
+
         void GetBalance()
         {
-            int accNumInt = int.Parse(cboFromAccount.SelectedItem.ToString());// essa linha pq ele pede q isso seja int no db
+            accNum1 = cboFromAccount.SelectedItem.ToString();
+            int accNumInt = int.Parse(accNum1);// essa linha pq ele pede q isso seja int no db
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspSelBal";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -79,34 +90,36 @@ namespace BanckWPF
             while (dr.Read())
             {
                 string balx = dr["InitialBalance"].ToString();
-                decimal fromDecimal = decimal.Parse(balx);
                 string fn = dr["Firstname"].ToString();
                 string sn = dr["Surname"].ToString();
                 string cy = dr["County"].ToString();
-
-                lblDisplayFromAcc.Content = fn + " " + sn + " From " + cy + "\n Balance: " + balx;
+                lblDisplayValueFrom.Content = balx;
+                lblDisplayFromAcc.Content = fn + " " + sn + " From " + cy;
             }
             dao.CloseCon();
         }
 
         void GetBalance1()
         {
-            int accNumInt = int.Parse(cboToAccount.SelectedItem.ToString());// essa linha pq ele pede q isso seja int no db
+            accNum1 = cboToAccount.SelectedItem.ToString();
+
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspSelBal";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@accNum", accNumInt);
+            cmd.Parameters.AddWithValue("@accNum", accNum1);
             dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
                 string balx = dr["InitialBalance"].ToString();
-                decimal toDecimal = decimal.Parse(balx);
                 string fn = dr["Firstname"].ToString();
                 string sn = dr["Surname"].ToString();
                 string cy = dr["County"].ToString();
-
+                lblDisplayValueTo.Content = balx;
+                lblDisplayToAcc.Content = fn + " " + sn + " From " + cy;
+            }
+            dao.CloseCon();
         }
 
         private void btnDeposit_Click(object sender, RoutedEventArgs e)
@@ -133,11 +146,19 @@ namespace BanckWPF
             tr.Show();
         }
 
+        private void btnTransfer_Click(object sender, RoutedEventArgs e)
+        {
+            FoundsFrom();
+            FoundsTo();
+            txtAmount.Clear();
+            MessageBox.Show("amem");
+        }
+
         void FoundsFrom()
         {
             accNum1 = cboFromAccount.SelectedItem.ToString();
             decimal amount = decimal.Parse(txtAmount.Text);
-            decimal bal = fromDecimal;
+            decimal bal = decimal.Parse(lblDisplayValueFrom.Content.ToString());
             decimal newBalance = bal - amount;
 
             SqlCommand cmd = dao.OpenCon().CreateCommand();
@@ -150,11 +171,12 @@ namespace BanckWPF
             cmd.ExecuteNonQuery();
             dao.CloseCon();
         }
+
         void FoundsTo()
         {
             accNum2 = cboToAccount.SelectedItem.ToString();
             decimal amount = decimal.Parse(txtAmount.Text);
-            decimal bal = toDecimal;//this is here so i dont have to change the UI
+            decimal bal = decimal.Parse(lblDisplayValueTo.Content.ToString());
             decimal newBalance = bal + amount;
 
             SqlCommand cmd = dao.OpenCon().CreateCommand();

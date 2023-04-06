@@ -15,7 +15,6 @@ namespace BIZ
         public string City { get; set; }
         public string County { get; set; }
         public int AccountType { get; set; }
-        public int AccountNumber { get; set; }
         public int SortCode { get; set; }
         public decimal InitialBalance { get; set; }
         public string Address1 { get; set; }
@@ -23,7 +22,7 @@ namespace BIZ
 
 
 
-        public Person(string fn, string sn, string email, string ph, string city, string cy, int accType, int accNum, int sc, decimal iniBal, string adr1, string adr2)
+        public Person(string fn, string sn, string email, string ph, string city, string cy, int accType, int sc, decimal iniBal, string adr1, string adr2)
         {
             Firstname = fn;
             Surname = sn;
@@ -32,7 +31,6 @@ namespace BIZ
             City = city;
             County = cy;
             AccountType = accType;
-            AccountNumber = accNum;
             SortCode = sc;
             InitialBalance = iniBal;
             Address1 = adr1;

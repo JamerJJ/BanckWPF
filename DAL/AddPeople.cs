@@ -13,7 +13,7 @@ namespace DAL
     {
         /*Methods for Add manager and user*/
 
-        public void AddNewAcc(string fn, string sn, string email, string ph, string city, string cy, int accType, int accNum, int sc, decimal iniBal, string adr1, string adr2)
+        public void AddNewAcc(string fn, string sn, string email, string ph, string city, string cy, int accType, int sc, decimal iniBal, string adr1, string adr2)
         {
             //string insert = "INSERT INTO tbNewAccount(Firstname, Surname, Email, Phone, City, County, AccountType, AccountNumber, SortCode, InicialBalance, Address1, Address2) VALUES (@fn, @sn, @email, @ph, @city, @cy, @accType, @accNum, @sc, @iniBal, @adr1, @adr2)";
             //SqlCommand cmd = new SqlCommand(insert, OpenCon());
@@ -29,7 +29,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@city", city);
             cmd.Parameters.AddWithValue("@cy", cy);
             cmd.Parameters.AddWithValue("@accType", accType);
-            cmd.Parameters.AddWithValue("@accNum", accNum);
             cmd.Parameters.AddWithValue("@sc", sc);
             cmd.Parameters.AddWithValue("@iniBal", iniBal);
             cmd.Parameters.AddWithValue("@adr1", adr1);

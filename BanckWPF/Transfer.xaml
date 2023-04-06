@@ -239,8 +239,8 @@
 
         <ComboBox x:Name="cboFromAccount" 
                   Height="30"
-                  Margin="164,133,35,337" 
-                  SelectionChanged="cboFromAccount_SelectionChanged"/>
+                  Margin="164,133,35,337" SelectionChanged="cboFromAccount_SelectionChanged" 
+                  />
 
         <Label x:Name="lblDisplayFromAcc"
                Height="50"
@@ -295,8 +295,7 @@
 
         <ComboBox x:Name="cboToAccount" 
                   Height="30"
-                  Margin="138,328,35,142" 
-                  SelectionChanged="cboToAccount_SelectionChanged"/>
+                  Margin="138,328,35,142" SelectionChanged="cboToAccount_SelectionChanged"/>
 
         <Label x:Name="lblDisplayToAcc"
                Height="50"

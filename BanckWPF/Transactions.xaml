@@ -227,7 +227,7 @@
                FontWeight="Bold"/>
 
 
-        <DataGrid Height="100"
+        <DataGrid x:Name="dgvTransactions" Height="100"
                   Width="500"
                   Margin="25,132,25,168"
                   >
@@ -244,7 +244,7 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="40"
-                FontSize="15">
+                FontSize="15" Click="btnAllAcc_Click">
 
         </Button>
 
@@ -257,7 +257,7 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="40"
-                FontSize="15">
+                FontSize="15" Click="btnAllTran_Click">
 
         </Button>
 
@@ -270,11 +270,11 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="40"
-                FontSize="15">
+                FontSize="15" Click="btnSearch_Click">
 
         </Button>
 
-        <ComboBox x:Name="cboAcc"
+        <ComboBox x:Name="cboSearch"
                   Margin="169,325,261,35" 
                   />
 
