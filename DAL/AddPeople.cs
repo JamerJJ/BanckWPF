@@ -56,7 +56,7 @@ namespace DAL
             CloseCon();
         }
 
-        public void AddWithraw(int accNum, string fn, string sn, decimal iniBal, int over)
+        public void AddWithdraw(int accNum, string fn, string sn, string accType, decimal iniBal, int over)
         {
 
             SqlCommand cmd = OpenCon().CreateCommand();
@@ -66,6 +66,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@accNum", accNum);
             cmd.Parameters.AddWithValue("@fn", fn);
             cmd.Parameters.AddWithValue("@sn", sn);
+            cmd.Parameters.AddWithValue("@accType", accType);
             cmd.Parameters.AddWithValue("@iniBal", iniBal);
             cmd.Parameters.AddWithValue("@over", over);
 

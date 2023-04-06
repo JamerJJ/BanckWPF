@@ -30,6 +30,7 @@ namespace BanckWPF
         DAO dao = new DAO();
         SqlDataReader dr;
         string accNum;
+        AddPeople ap = new AddPeople();
         void PopulateCombo()
         {
             SqlCommand cmd = dao.OpenCon().CreateCommand();
@@ -69,15 +70,42 @@ namespace BanckWPF
             decimal bal = decimal.Parse(lblDisplayAcc.Content.ToString());
             decimal newBalance = bal - amount;
 
+            //nao achei forma mais facil de fazer --INICIO
+            string fname = " ", sname = " ", accType = " ";
+            int accNumInt = int.Parse(accNum);
+            int over = 0;//rever overdraft
+
             SqlCommand cmd = dao.OpenCon().CreateCommand();
-            cmd.CommandText = "uspUpdateBalWD";
+            cmd.CommandText = "uspSelBal";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("newBalance", newBalance);
-            cmd.Parameters.AddWithValue("accNum", accNum);
+            cmd.Parameters.AddWithValue("@accNum", accNumInt);
+            dr = cmd.ExecuteReader();
 
-            cmd.ExecuteNonQuery();
+            while (dr.Read())
+            {
+                string fn = dr["Firstname"].ToString();
+                string sn = dr["Surname"].ToString();
+                string type = dr["AccountType"].ToString();
+
+                fname = fn;
+                sname = sn;
+                accType = type; 
+
+            }
+
             dao.CloseCon();
+
+            SqlCommand cmd2 = dao.OpenCon().CreateCommand();
+            cmd2.CommandText = "uspUpdateBalWD";
+            cmd2.CommandType = CommandType.StoredProcedure;
+
+            cmd2.Parameters.AddWithValue("newBalance", newBalance);
+            cmd2.Parameters.AddWithValue("accNum", accNum);
+            cmd2.ExecuteNonQuery();
+            dao.CloseCon();
+
+            ap.AddWithdraw(accNumInt, fname, sname, accType, amount, over);// ISSO TBM
 
             MessageBox.Show("Your account has been updated whit " + amount + "\nYour new balance is: " + newBalance, "Account Update", MessageBoxButton.OK, MessageBoxImage.Information);
             txtAmount.Clear();

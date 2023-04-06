@@ -102,6 +102,7 @@ namespace BanckWPF
             decimal bal = decimal.Parse(lblDisplayBalance.Content.ToString());
             decimal newBalance = amount + bal;
 
+            //nao achei forma mais facil de fazer --INICIO
             string fname = " ", sname = " " ; 
             int accNumInt = int.Parse(accNum);
 
@@ -124,8 +125,8 @@ namespace BanckWPF
 
             dao.CloseCon();
 
-            SqlCommand cmd2 = dao.OpenCon().CreateCommand();
-            cmd2.CommandText = "uspUpdateBalWD";
+            SqlCommand cmd2 = dao.OpenCon().CreateCommand();//PRECISEI CRIAR cmd2
+            cmd2.CommandText = "uspUpdateBalWD";// REVER ESSE STORED PROCEDURE
             cmd2.CommandType = CommandType.StoredProcedure;
 
             cmd2.Parameters.AddWithValue("newBalance", newBalance);
@@ -134,7 +135,7 @@ namespace BanckWPF
             dao.CloseCon();
 
 
-            ap.AddLogdement(accNumInt, fname, sname, amount);// adicionar variavel do valor da transferencia
+            ap.AddLogdement(accNumInt, fname, sname, amount);// ISSO TBM
 
 
             MessageBox.Show("Your account has been updated whit " + amount + "\nYour new balance is: " + newBalance, "Account Update", MessageBoxButton.OK, MessageBoxImage.Information);
