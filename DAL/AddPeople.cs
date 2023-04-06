@@ -15,8 +15,6 @@ namespace DAL
 
         public void AddNewAcc(string fn, string sn, string email, string ph, string city, string cy, string accType, int sc, decimal iniBal, string adr1, string adr2)
         {
-            //string insert = "INSERT INTO tbNewAccount(Firstname, Surname, Email, Phone, City, County, AccountType, AccountNumber, SortCode, InicialBalance, Address1, Address2) VALUES (@fn, @sn, @email, @ph, @city, @cy, @accType, @accNum, @sc, @iniBal, @adr1, @adr2)";
-            //SqlCommand cmd = new SqlCommand(insert, OpenCon());
 
             SqlCommand cmd = OpenCon().CreateCommand();
             cmd.CommandText = "uspAddAccount";
@@ -37,7 +35,58 @@ namespace DAL
             cmd.ExecuteNonQuery();
             CloseCon();
         }
+        public void AddTransfer(int accNum, string fn, string sn, string accType, int senderSC, int receiverSC, int receiverAccNum, decimal iniBal, int over)
+        {
 
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspAddTransfer";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+            cmd.Parameters.AddWithValue("@fn", fn);
+            cmd.Parameters.AddWithValue("@sn", sn);
+            cmd.Parameters.AddWithValue("@accType", accType);
+            cmd.Parameters.AddWithValue("@senderSC", senderSC);
+            cmd.Parameters.AddWithValue("@receiverSC", receiverSC);
+            cmd.Parameters.AddWithValue("@receiverAccNum", receiverAccNum);
+            cmd.Parameters.AddWithValue("@iniBal", iniBal);
+            cmd.Parameters.AddWithValue("@over", over);
+
+            cmd.ExecuteNonQuery();
+            CloseCon();
+        }
+
+        public void AddWithraw(int accNum, string fn, string sn, decimal iniBal, int over)
+        {
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspAddWithdraw";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+            cmd.Parameters.AddWithValue("@fn", fn);
+            cmd.Parameters.AddWithValue("@sn", sn);
+            cmd.Parameters.AddWithValue("@iniBal", iniBal);
+            cmd.Parameters.AddWithValue("@over", over);
+
+            cmd.ExecuteNonQuery();
+            CloseCon();
+        }
+        public void AddLogdement(int accNum, string fn, string sn, decimal iniBal)
+        {
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspAddLodgement";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+            cmd.Parameters.AddWithValue("@fn", fn);
+            cmd.Parameters.AddWithValue("@sn", sn);
+            cmd.Parameters.AddWithValue("@iniBal", iniBal);
+
+            cmd.ExecuteNonQuery();
+            CloseCon();
+        }
 
 
 

@@ -30,6 +30,7 @@ namespace BanckWPF
         DAO dao = new DAO();
         SqlDataReader dr;
         string accNum;
+        AddPeople ap = new AddPeople();
 
         private void Border_Loaded(object sender, RoutedEventArgs e)
         {
@@ -46,28 +47,6 @@ namespace BanckWPF
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btnDeposit_Click(object sender, RoutedEventArgs e)
-        {
-            accNum = cboAccNum.SelectedItem.ToString();
-            decimal amount = decimal.Parse(txtDeposit.Text);
-            decimal bal = decimal.Parse(lblDisplayBalance.Content.ToString());
-            decimal newBalance = amount + bal;
-
-            SqlCommand cmd = dao.OpenCon().CreateCommand();
-            cmd.CommandText = "uspUpdateBalWD";
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("newBalance", newBalance);
-            cmd.Parameters.AddWithValue("accNum", accNum);
-
-            cmd.ExecuteNonQuery();
-            dao.CloseCon();
-
-            MessageBox.Show("Your account has been updated whit " + amount + "\nYour new balance is: " + newBalance, "Account Update", MessageBoxButton.OK, MessageBoxImage.Information);
-            txtDeposit.Clear();
-
         }
 
         void PopulateCombo()
@@ -113,6 +92,45 @@ namespace BanckWPF
         private void cboAccNum_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GetBalance();
+        }
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+
+            accNum = cboAccNum.SelectedItem.ToString();
+            
+            decimal amount = decimal.Parse(txtDeposit.Text);
+            decimal bal = decimal.Parse(lblDisplayBalance.Content.ToString());
+            decimal newBalance = amount + bal;
+
+            //string fName, sName; //ME AJUDA AQUI, NAO SEI COMO PEGAR AS VARIAVEL AQUI PRA PASSAR PRA ap.AddLodgement paramentros
+            //int accNumInt = int.Parse(accNum);
+            //while (dr.Read())
+            //{
+            //    string fn = dr["Firstname"].ToString();
+            //    string sn = dr["Surname"].ToString();
+
+            //    fName = fn;
+            //    sName = sn;
+            //}
+
+            SqlCommand cmd = dao.OpenCon().CreateCommand();
+            cmd.CommandText = "uspUpdateBalWD";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("newBalance", newBalance);
+            cmd.Parameters.AddWithValue("accNum", accNum);
+            cmd.ExecuteNonQuery();
+            dao.CloseCon();
+
+
+            //ap.AddLogdement(accNumInt, fName, sName, newBalance);
+
+
+            MessageBox.Show("Your account has been updated whit " + amount + "\nYour new balance is: " + newBalance, "Account Update", MessageBoxButton.OK, MessageBoxImage.Information);
+            txtDeposit.Clear();
+
+
+
         }
 
         private void btnDepositMenu_Click(object sender, RoutedEventArgs e)
