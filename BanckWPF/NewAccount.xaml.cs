@@ -78,14 +78,15 @@ namespace BanckWPF
 
             //int overLimit = 0; //just added set the overlimit to 0 unless the current is checked than it can be added a value.
             
-            if(rdoCurrent.IsChecked == true)
+
+            if (rdoCurrent.IsChecked == true)
             {                
                 overD = int.Parse(txtOverAmt.Text);//what if nothing is add to the box?
             }
-            else
-            {
-                txtOverAmt.IsEnabled = false;
-            }
+
+
+
+            
             
             
 
