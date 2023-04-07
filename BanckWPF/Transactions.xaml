@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:BanckWPF"
         mc:Ignorable="d"
         Title="Transactions" 
-        Height="400" 
-        Width="700"
+        Height="600" 
+        Width="750"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -132,8 +132,8 @@
 
     <Grid>
 
-        <Border Height="400"
-                Width="700"
+        <Border Height="600"
+                Width="750"
                 CornerRadius="25"
                 Background="#524E4F" Loaded="Border_Loaded">
             <Border.Effect>
@@ -227,14 +227,14 @@
                FontWeight="Bold"/>
 
 
-        <DataGrid x:Name="dgvTransactions" Height="100"
-                  Margin="25,132,24,168"
+        <DataGrid x:Name="dgvTransactions"
+                  Margin="25,125,24,175"
                   />
 
         <Button x:Name="btnAllAcc" 
                 Content="All Accounts" 
                 HorizontalAlignment="Left" 
-                Margin="25,266,0,0" 
+                Margin="25,442,0,0" 
                 VerticalAlignment="Top" 
                 Width="120" 
                 Background="#FF282814" 
@@ -247,7 +247,7 @@
         <Button x:Name="btnAllTran"
                 Content="All Transactions"
                 HorizontalAlignment="Left" 
-                Margin="169,266,0,0" 
+                Margin="180,442,0,0" 
                 VerticalAlignment="Top" 
                 Width="120" 
                 Background="#FF282814" 
@@ -260,7 +260,7 @@
         <Button x:Name="btnSearch"
                 Content="Seacrh"
                 HorizontalAlignment="Left" 
-                Margin="25,325,0,0" 
+                Margin="25,507,0,0" 
                 VerticalAlignment="Top" 
                 Width="120" 
                 Background="#FF282814" 
@@ -271,7 +271,7 @@
         </Button>
 
         <ComboBox x:Name="cboSearch"
-                  Margin="169,325,261,35" FontSize="18" SelectedIndex="0" FontWeight="Bold" 
+                  Margin="180,511,250,49" FontSize="18" SelectedIndex="0" FontWeight="Bold" 
                   >
 
             <ComboBoxItem Content="New Account" FontSize="16"/>
@@ -283,7 +283,7 @@
         <Button x:Name="btnEdit"
                 Content="Edit Data"
                 HorizontalAlignment="Left" 
-                Margin="315,266,0,0" 
+                Margin="330,442,0,0" 
                 VerticalAlignment="Top" 
                 Width="120" 
                 Background="#FF282814" 
