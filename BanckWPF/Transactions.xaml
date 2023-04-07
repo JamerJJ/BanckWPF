@@ -135,7 +135,7 @@
         <Border Height="400"
                 Width="700"
                 CornerRadius="25"
-                Background="#524E4F">
+                Background="#524E4F" Loaded="Border_Loaded">
             <Border.Effect>
                 <DropShadowEffect Color="#000000"
                                   Opacity="0.5"
@@ -271,8 +271,14 @@
         </Button>
 
         <ComboBox x:Name="cboSearch"
-                  Margin="169,325,261,35" 
-                  />
+                  Margin="169,325,261,35" FontSize="18" SelectedIndex="0" FontWeight="Bold" 
+                  >
+
+            <ComboBoxItem Content="New Account" FontSize="16"/>
+            <ComboBoxItem Content="Deposit" FontSize="16"/>
+            <ComboBoxItem Content="Withdraw" FontSize="16"/>
+            <ComboBoxItem Content="Transfer" FontSize="16"/>
+        </ComboBox>
 
         <Button x:Name="btnEdit"
                 Content="Edit Data"

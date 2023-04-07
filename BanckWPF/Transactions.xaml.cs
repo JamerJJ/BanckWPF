@@ -56,22 +56,23 @@ namespace BanckWPF
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            Binding bs = new Binding();
             da = new SqlDataAdapter();
             dt = new DataTable();
 
-            string accNumber = cboSearch.SelectedItem.ToString();// cbo vai ter os numeros das contas 
+            string tranType = cboSearch.SelectedItem.ToString(); 
 
             SqlCommand cmd = dao.OpenCon().CreateCommand();
-            cmd.CommandText = "uspAccNumber"; //Criar um stored procedure que pegue os dados de uma conta de acordo com o numero dela(whatsapp)
+            cmd.CommandText = "uspTransactionType";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@accNumber", accNumber);
+            cmd.Parameters.AddWithValue("@tranType", tranType);
 
             da.SelectCommand = cmd;
             da.Fill(dt);
             bs.Source = dt;
-            dgvTransactions.DataContext = bs;
 
+            dgvTransactions.ItemsSource = dt.DefaultView;
             dao.CloseCon();
         }
 
@@ -89,7 +90,8 @@ namespace BanckWPF
             da.Fill(dt);
             bs.Source = dt;
 
-            dgvTransactions.DataContext = dt;
+            dgvTransactions.ItemsSource = dt.DefaultView;
+            dao.CloseCon();
 
             dao.CloseCon();
         }
@@ -134,6 +136,11 @@ namespace BanckWPF
         {
             sb = new SqlCommandBuilder(da); //need to check if the edit button is working 
             da.Update(dt);
+        }
+
+        private void Border_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
