@@ -55,13 +55,16 @@ namespace BanckWPF
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string naosei = cboSearch.SelectedItem.ToString();//nao sei oq fazer aqi
+            da = new SqlDataAdapter();
+            dt = new DataTable();
+
+            string accNumber = cboSearch.SelectedItem.ToString();// cbo vai ter os numeros das contas 
 
             SqlCommand cmd = dao.OpenCon().CreateCommand();
-            cmd.CommandText = ""; //nao sei oq fazer aqi
+            cmd.CommandText = "uspAccNumber"; //Criar um stored procedure que pegue os dados de uma conta de acordo com o numero dela(whatsapp)
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@naosei", naosei);//nao sei ...
+            cmd.Parameters.AddWithValue("@accNumber", accNumber);
 
             da.SelectCommand = cmd;
             da.Fill(dt);

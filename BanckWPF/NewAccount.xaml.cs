@@ -76,6 +76,15 @@ namespace BanckWPF
                 accType = "Saving";
             }
 
+            int overLimit = int.Parse(txtOverAmt.Text); //just added set the overlimit to 0 unless the current is checked than it can be added a value.
+            overLimit = 0;
+            if(rdoCurrent.IsChecked == true)
+            {
+                overLimit = int.Parse(txtOverAmt.Text);
+            }
+            
+            
+
 
             //Call a method
             //Add o resto dos dados a serem enseridos na DB
@@ -93,6 +102,7 @@ namespace BanckWPF
             txtAdd2.Clear();
             txtCity.Clear();
             txtInicialBal.Clear();
+            txtOverAmt.Clear();
 
             MessageBox.Show("New Account Created!");
         }

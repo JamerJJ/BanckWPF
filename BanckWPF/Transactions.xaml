@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Transactions" 
         Height="400" 
-        Width="550"
+        Width="700"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -133,7 +133,7 @@
     <Grid>
 
         <Border Height="400"
-                Width="550"
+                Width="700"
                 CornerRadius="25"
                 Background="#524E4F">
             <Border.Effect>
@@ -219,7 +219,7 @@
 
         <Label Content="Transactions"
                HorizontalAlignment="Left" 
-               Margin="185,65,0,0" 
+               Margin="265,70,0,0" 
                VerticalAlignment="Top" 
                Background="Transparent" 
                Foreground="White"
@@ -228,12 +228,8 @@
 
 
         <DataGrid x:Name="dgvTransactions" Height="100"
-                  Width="500"
-                  Margin="25,132,25,168"
-                  >
-
-
-        </DataGrid>
+                  Margin="25,132,24,168"
+                  />
 
         <Button x:Name="btnAllAcc" 
                 Content="All Accounts" 

@@ -396,6 +396,29 @@
             FontSize="20" 
             GotFocus="txtInicialBal_GotFocus"/>
 
+        <Label Content="Overdraft Limit" 
+            HorizontalAlignment="Left" 
+            Margin="395,542,0,0" 
+            VerticalAlignment="Top" 
+            Background="Transparent" 
+            Foreground="White"
+            FontSize="20"
+               />
+
+        <TextBox x:Name="txtOverAmt" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="395,579,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="270" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
         <Label Content="Surname" 
             HorizontalAlignment="Left" 
             Margin="395,132,0,0" 
@@ -526,7 +549,7 @@
         <Button x:Name="btnNewAccount" 
                 Content="Create Acc" 
                 HorizontalAlignment="Left" 
-                Margin="280,575,0,0" 
+                Margin="83,570,0,0" 
                 VerticalAlignment="Top" 
                 Width="120" 
                 Background="#FF282814" 
