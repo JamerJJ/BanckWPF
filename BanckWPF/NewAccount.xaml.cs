@@ -60,37 +60,27 @@ namespace BanckWPF
             string city = txtCity.Text;
             string cy = cboCy.SelectedItem.ToString();
             int sc = 101010;
-            int overD = 0;
-            /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
-            decimal iniBal = decimal.Parse(txtInicialBal.Text);
-            if (iniBal < 50) //test the minimum amount to open an account
-            {
-                MessageBox.Show("Invalid Amount");
-                txtInicialBal.Clear(); // clear the box to prevent incorrect value
-                iniBal = 0;//nao ta funcionando
-            }
+            int overD = 0;                                   
             
-            string accType = "Current";
-            if (rdoSavings.IsChecked == true)
-            {
-                accType = "Saving";
-            }
-
-            //int overLimit = 0; //just added set the overlimit to 0 unless the current is checked than it can be added a value.
-            
-
+            string accType = "Savings";
             if (rdoCurrent.IsChecked == true)
-            {                
-                overD = int.Parse(txtOverAmt.Text);//what if nothing is add to the box?
+            {
+                accType = "Current";
             }
 
+            int.TryParse(txtOverAmt.Text, out overD);
 
+            int iniBal = 50;
+            int currentValue = int.Parse(txtInicialBal.Text);
 
-            
-            
-            
-
-
+            if(currentValue < iniBal)
+            {
+                MessageBox.Show("Amount less than 50");
+                return;
+            }
+                       
+                     
+                        
             //Call a method
             //Add o resto dos dados a serem enseridos na DB
             ap.AddNewAcc(fn, sn, email, ph, city, cy, accType, sc, iniBal, adr1, adr2, overD);
@@ -115,6 +105,16 @@ namespace BanckWPF
         private void cboCy_Loaded(object sender, RoutedEventArgs e)
         {
             cboCy.ItemsSource = Enum.GetValues(typeof(County));
+        }
+
+        private void rdoSavings_Click(object sender, RoutedEventArgs e)
+        {
+            txtOverAmt.IsEnabled = false;
+        }
+
+        private void rdoCurrent_Click(object sender, RoutedEventArgs e)
+        {
+            txtOverAmt.IsEnabled = true;
         }
     }
 }
