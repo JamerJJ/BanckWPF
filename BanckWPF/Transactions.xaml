@@ -170,7 +170,7 @@
                       Style="{StaticResource Main_MenuItem}" Click="btnDeposit_Click" 
                       >
                 <MenuItem.Icon>
-                    <Image Source="Assets/img_home.png"
+                    <Image Source="Assets/Deposit.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
 
@@ -183,7 +183,7 @@
                       Style="{StaticResource Main_MenuItem}" Click="btnTransfer_Click" 
                       >
                 <MenuItem.Icon>
-                    <Image Source="Assets/img_about_us.png"
+                    <Image Source="Assets/Transfer.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
             </MenuItem>
@@ -195,7 +195,7 @@
                       Style="{StaticResource Main_MenuItem}" Click="btnWithdraw_Click" 
                       >
                 <MenuItem.Icon>
-                    <Image Source="Assets/img_about_us.png"
+                    <Image Source="Assets/Withdraw.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
             </MenuItem>
@@ -207,7 +207,7 @@
                       Style="{StaticResource Main_MenuItem}" Click="btnTransactions_Click" 
                       >
                 <MenuItem.Icon>
-                    <Image Source="Assets/img_about_us.png"
+                    <Image Source="Assets/Transactions.png"
                            Stretch="Uniform" />
                 </MenuItem.Icon>
             </MenuItem>
@@ -283,7 +283,7 @@
                 Background="#FF282814" 
                 Foreground="White" 
                 Height="40"
-                FontSize="15">
+                FontSize="15" Click="btnEdit_Click">
 
         </Button>
 

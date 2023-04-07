@@ -187,5 +187,12 @@
   <ItemGroup>
     <Resource Include="Assets\img_shutdown_def.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Deposit.png" />
+    <Resource Include="Assets\Newaccount.png" />
+    <Resource Include="Assets\transactions.png" />
+    <Resource Include="Assets\Transfer.png" />
+    <Resource Include="Assets\withdraw.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

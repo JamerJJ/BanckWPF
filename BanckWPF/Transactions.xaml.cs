@@ -32,6 +32,7 @@ namespace BanckWPF
         DataTable dt;
         SqlDataReader dr;
         Binding bs = new Binding();
+        SqlCommandBuilder sb;
 
         private void btnAllAcc_Click(object sender, RoutedEventArgs e)
         {
@@ -127,6 +128,12 @@ namespace BanckWPF
         {
             Transactions tr = new Transactions();
             tr.Show();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            sb = new SqlCommandBuilder(da); //need to check if the edit button is working 
+            da.Update(dt);
         }
     }
 }
