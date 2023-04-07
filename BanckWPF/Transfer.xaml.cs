@@ -30,9 +30,9 @@ namespace BanckWPF
 
         DAO dao = new DAO();
         SqlDataReader dr;
-        string accNum1, accNum2;
+        string accNum1, accNum2, senderSC, receiverSC;
         AddPeople ap = new AddPeople();
-        int accNumInt1, accNumInt2, senderSC, receiverSC, receiverAccNum, Amount = 0, over = 0;
+        int accNumInt1, accNumInt2, receiverAccNum, over = 0;
         string fname = " ", sname = " ", fname1 = " ", sname1 = " ", accType = " ";
         
         private void Close_App_Click(object sender, RoutedEventArgs e)
@@ -104,13 +104,13 @@ namespace BanckWPF
 
         void GetBalance1()
         {
-            accNum1 = cboToAccount.SelectedItem.ToString();
+            accNum2 = cboToAccount.SelectedItem.ToString();
 
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspSelBal";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@accNum", accNum1);
+            cmd.Parameters.AddWithValue("@accNum", accNum2);
             dr = cmd.ExecuteReader();
 
             while (dr.Read())
@@ -151,16 +151,9 @@ namespace BanckWPF
 
         private void btnTransfer_Click(object sender, RoutedEventArgs e)
         {
-            FoundsFrom();//add option to transfer for otherbanks
-            FoundsTo();
-            txtAmount.Clear();
-            MessageBox.Show("Founds Transfered!");
-            ap.AddTransfer(accNumInt1, fname1, sname1, accType, senderSC, receiverSC, receiverAccNum, Amount, over);
-        }
-
-        void FoundsFrom()
-        {
+            //TESTE FOUNDS FROM
             accNum1 = cboFromAccount.SelectedItem.ToString();
+
             decimal amount = decimal.Parse(txtAmount.Text);
             decimal bal = decimal.Parse(lblDisplayValueFrom.Content.ToString());
             decimal newBalance = bal - amount;
@@ -182,12 +175,15 @@ namespace BanckWPF
                 string fn = dr["Firstname"].ToString();
                 string sn = dr["Surname"].ToString();
                 string type = dr["AccountType"].ToString();
+                string sc = dr["SortCode"].ToString();
 
                 fname1 = fn;
                 sname1 = sn;
                 accType = type;
-
+                senderSC = sc;
             }
+
+            int senderSCInt = int.Parse(senderSC);//socorro
 
             dao.CloseCon();
             SqlCommand cmd2 = dao.OpenCon().CreateCommand();
@@ -199,49 +195,149 @@ namespace BanckWPF
             cmd2.ExecuteNonQuery();
             dao.CloseCon();
 
-            ap.AddWithdraw(accNumInt1, fname1, sname1, accType, amount, over);
-        }
+            //ap.AddWithdraw(accNumInt1, fname1, sname1, accType, amount, over);
 
-        void FoundsTo()
-        {
+            // END OF FOUNDS FROM
+            //----------------------------------------------------------------------------------
+            //teste FOUNDS TO
+
             accNum2 = cboToAccount.SelectedItem.ToString();
-            decimal amount = decimal.Parse(txtAmount.Text);
-            decimal bal = decimal.Parse(lblDisplayValueTo.Content.ToString());
-            decimal newBalance = bal + amount;
+            decimal amount2 = decimal.Parse(txtAmount.Text);
+            decimal bal2 = decimal.Parse(lblDisplayValueTo.Content.ToString());
+            decimal newBalance2 = bal2 + amount2;
 
             //nao achei forma mais facil de fazer --INICIO
-            string fname = " ", sname = " ";
+            string fname2 = " ", sname2 = " ";
             int accNumInt2 = int.Parse(accNum2);
 
-            SqlCommand cmd = dao.OpenCon().CreateCommand();
-            cmd.CommandText = "uspSelBal";
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd3 = dao.OpenCon().CreateCommand();
+            cmd3.CommandText = "uspSelBal";
+            cmd3.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@accNum", accNumInt2);
-            dr = cmd.ExecuteReader();
+            cmd3.Parameters.AddWithValue("@accNum", accNumInt2);
+            dr = cmd3.ExecuteReader();
 
             while (dr.Read())
             {
-                string fn = dr["Firstname"].ToString();
-                string sn = dr["Surname"].ToString();
+                string fn2 = dr["Firstname"].ToString();
+                string sn2 = dr["Surname"].ToString();
+                string rsc = dr["SortCode"].ToString();
 
-                fname = fn;
-                sname = sn;
-
+                fname2 = fn2;
+                sname2 = sn2;
+                receiverSC = rsc;
             }
 
+            int receiverSCInt = int.Parse(receiverSC);
+
             dao.CloseCon();
 
-            SqlCommand cmd2 = dao.OpenCon().CreateCommand();
-            cmd2.CommandText = "uspUpdateBalWD";
-            cmd2.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd4 = dao.OpenCon().CreateCommand();
+            cmd4.CommandText = "uspUpdateBalWD";
+            cmd4.CommandType = CommandType.StoredProcedure;
 
-            cmd2.Parameters.AddWithValue("@newBalance", newBalance);
-            cmd2.Parameters.AddWithValue("@accNum", accNum2);
-            cmd2.ExecuteNonQuery();
+            cmd4.Parameters.AddWithValue("@newBalance", newBalance2);
+            cmd4.Parameters.AddWithValue("@accNum", accNum2);
+            cmd4.ExecuteNonQuery();
             dao.CloseCon();
 
-            ap.AddLogdement(accNumInt2, fname, sname, amount);//precida da table transfer?
+            //ap.AddLogdement(accNumInt2, fname2, sname2, amount);
+            //teste END OF FOUNDS TO
+
+            //FoundsFrom();//add option to transfer for otherbanks
+            //FoundsTo();
+
+            txtAmount.Clear();
+            MessageBox.Show("Founds Transfered!");
+            ap.AddTransfer(accNumInt1, fname1, sname1, accType, senderSCInt, receiverSCInt, accNumInt2, amount, over);
         }
+
+        //public void FoundsFrom()
+        //{
+        //    accNum1 = cboFromAccount.SelectedItem.ToString();
+
+        //    decimal amount = decimal.Parse(txtAmount.Text);
+        //    decimal bal = decimal.Parse(lblDisplayValueFrom.Content.ToString());
+        //    decimal newBalance = bal - amount;
+
+        //    //nao achei forma mais facil de fazer --INICIO
+        //    int over = 0;//rever overdraft
+        //    string fname1 = " ", sname1 = " ";
+        //    int accNumInt1 = int.Parse(accNum1);
+        //    accType = " ";
+
+        //    SqlCommand cmd = dao.OpenCon().CreateCommand();
+        //    cmd.CommandText = "uspSelBal";
+        //    cmd.CommandType = CommandType.StoredProcedure;
+
+        //    cmd.Parameters.AddWithValue("@accNum", accNumInt1);
+        //    dr = cmd.ExecuteReader();
+
+        //    while (dr.Read())
+        //    {
+        //        string fn = dr["Firstname"].ToString();
+        //        string sn = dr["Surname"].ToString();
+        //        string type = dr["AccountType"].ToString();
+
+        //        fname1 = fn;
+        //        sname1 = sn;
+        //        accType = type;
+
+        //    }
+
+        //    dao.CloseCon();
+        //    SqlCommand cmd2 = dao.OpenCon().CreateCommand();
+        //    cmd2.CommandText = "uspUpdateBalWD";
+        //    cmd2.CommandType = CommandType.StoredProcedure;
+
+        //    cmd2.Parameters.AddWithValue("@newBalance", newBalance);
+        //    cmd2.Parameters.AddWithValue("@accNum", accNum1);
+        //    cmd2.ExecuteNonQuery();
+        //    dao.CloseCon();
+
+        //    ap.AddWithdraw(accNumInt1, fname1, sname1, accType, amount, over);
+        //}
+
+        //public void FoundsTo()
+        //{
+        //    accNum2 = cboToAccount.SelectedItem.ToString();
+        //    decimal amount = decimal.Parse(txtAmount.Text);
+        //    decimal bal = decimal.Parse(lblDisplayValueTo.Content.ToString());
+        //    decimal newBalance = bal + amount;
+
+        //    //nao achei forma mais facil de fazer --INICIO
+        //    string fname = " ", sname = " ";
+        //    int accNumInt2 = int.Parse(accNum2);
+
+        //    SqlCommand cmd = dao.OpenCon().CreateCommand();
+        //    cmd.CommandText = "uspSelBal";
+        //    cmd.CommandType = CommandType.StoredProcedure;
+
+        //    cmd.Parameters.AddWithValue("@accNum", accNumInt2);
+        //    dr = cmd.ExecuteReader();
+
+        //    while (dr.Read())
+        //    {
+        //        string fn = dr["Firstname"].ToString();
+        //        string sn = dr["Surname"].ToString();
+
+        //        fname = fn;
+        //        sname = sn;
+
+        //    }
+
+        //    dao.CloseCon();
+
+        //    SqlCommand cmd2 = dao.OpenCon().CreateCommand();
+        //    cmd2.CommandText = "uspUpdateBalWD";
+        //    cmd2.CommandType = CommandType.StoredProcedure;
+
+        //    cmd2.Parameters.AddWithValue("@newBalance", newBalance);
+        //    cmd2.Parameters.AddWithValue("@accNum", accNum2);
+        //    cmd2.ExecuteNonQuery();
+        //    dao.CloseCon();
+
+        //    ap.AddLogdement(accNumInt2, fname, sname, amount);//precida da table transfer?
+        //}
     }
 }
