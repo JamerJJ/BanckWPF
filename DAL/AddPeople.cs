@@ -13,7 +13,7 @@ namespace DAL
     {
         /*Methods for Add manager and user*/
 
-        public void AddNewAcc(string fn, string sn, string email, string ph, string city, string cy, string accType, int sc, decimal iniBal, string adr1, string adr2)
+        public void AddNewAcc(string fn, string sn, string email, string ph, string city, string cy, string accType, int sc, decimal iniBal, string adr1, string adr2, int overD)
         {
 
             SqlCommand cmd = OpenCon().CreateCommand();
@@ -31,6 +31,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@iniBal", iniBal);
             cmd.Parameters.AddWithValue("@adr1", adr1);
             cmd.Parameters.AddWithValue("@adr2", adr2);
+            cmd.Parameters.AddWithValue("@overD", overD);
 
             cmd.ExecuteNonQuery();
             CloseCon();
@@ -56,7 +57,7 @@ namespace DAL
             CloseCon();
         }
 
-        public void AddWithdraw(int accNum, string fn, string sn, string accType, decimal iniBal, int over)
+        public void AddWithdraw(int accNum, string fn, string sn, string accType, decimal iniBal, int overD)
         {
 
             SqlCommand cmd = OpenCon().CreateCommand();
@@ -68,7 +69,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@sn", sn);
             cmd.Parameters.AddWithValue("@accType", accType);
             cmd.Parameters.AddWithValue("@iniBal", iniBal);
-            cmd.Parameters.AddWithValue("@over", over);
+            cmd.Parameters.AddWithValue("@overD", overD);
 
             cmd.ExecuteNonQuery();
             CloseCon();

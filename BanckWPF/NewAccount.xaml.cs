@@ -60,7 +60,7 @@ namespace BanckWPF
             string city = txtCity.Text;
             string cy = cboCy.SelectedItem.ToString();
             int sc = 101010;
-
+            int overD = 0;
             /*Nao sei se ta certo esse if statment (conferir data type of 50 em dec ou cents)*/
             decimal iniBal = decimal.Parse(txtInicialBal.Text);
             if (iniBal < 50) //test the minimum amount to open an account
@@ -76,11 +76,15 @@ namespace BanckWPF
                 accType = "Saving";
             }
 
-            int overLimit = int.Parse(txtOverAmt.Text); //just added set the overlimit to 0 unless the current is checked than it can be added a value.
-            overLimit = 0;
+            //int overLimit = 0; //just added set the overlimit to 0 unless the current is checked than it can be added a value.
+            
             if(rdoCurrent.IsChecked == true)
+            {                
+                overD = int.Parse(txtOverAmt.Text);//what if nothing is add to the box?
+            }
+            else
             {
-                overLimit = int.Parse(txtOverAmt.Text);
+                txtOverAmt.IsEnabled = false;
             }
             
             
@@ -88,7 +92,7 @@ namespace BanckWPF
 
             //Call a method
             //Add o resto dos dados a serem enseridos na DB
-            ap.AddNewAcc(fn, sn, email, ph, city, cy, accType, sc, iniBal, adr1, adr2);
+            ap.AddNewAcc(fn, sn, email, ph, city, cy, accType, sc, iniBal, adr1, adr2, overD);
             
 
             //Tidy up

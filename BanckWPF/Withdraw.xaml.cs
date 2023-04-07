@@ -66,6 +66,7 @@ namespace BanckWPF
         private void btnWithdraw_Click(object sender, RoutedEventArgs e)
         {
             accNum = cboAccNum.SelectedItem.ToString();
+
             decimal amount = decimal.Parse(txtAmount.Text);
             decimal bal = decimal.Parse(lblDisplayAcc.Content.ToString());
             decimal newBalance = bal - amount;
@@ -73,7 +74,7 @@ namespace BanckWPF
             //nao achei forma mais facil de fazer --INICIO
             string fname = " ", sname = " ", accType = " ";
             int accNumInt = int.Parse(accNum);
-            int over = 0;//rever overdraft
+            int overD = 0;//rever overdraft
 
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspSelBal";
@@ -105,7 +106,7 @@ namespace BanckWPF
             cmd2.ExecuteNonQuery();
             dao.CloseCon();
 
-            ap.AddWithdraw(accNumInt, fname, sname, accType, amount, over);// ISSO TBM
+            ap.AddWithdraw(accNumInt, fname, sname, accType, amount, overD);
 
             MessageBox.Show("Your account has been updated whit " + amount + "\nYour new balance is: " + newBalance, "Account Update", MessageBoxButton.OK, MessageBoxImage.Information);
             txtAmount.Clear();
