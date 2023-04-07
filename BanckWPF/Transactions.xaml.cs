@@ -161,13 +161,19 @@ namespace BanckWPF
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            sb = new SqlCommandBuilder(da); //need to check if the edit button is working 
+            sb = new SqlCommandBuilder(da);
             da.Update(dt);
         }
 
         private void Border_Loaded(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void cboSearch_Loaded(object sender, RoutedEventArgs e)
+        {
+            string[] comboItems = new string[] { "New Account", "Deposit", "Withdraw", "Transfer" };
+            cboSearch.ItemsSource = comboItems;
         }
     }
 }

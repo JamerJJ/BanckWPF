@@ -271,13 +271,10 @@
         </Button>
 
         <ComboBox x:Name="cboSearch"
-                  Margin="180,511,250,49" FontSize="18" SelectedIndex="0" FontWeight="Bold" 
+                  Margin="180,511,250,49" FontSize="18" SelectedIndex="0" FontWeight="Bold" Loaded="cboSearch_Loaded" 
                   >
 
-            <ComboBoxItem Content="New Account" FontSize="16"/>
-            <ComboBoxItem Content="Deposit" FontSize="16"/>
-            <ComboBoxItem Content="Withdraw" FontSize="16"/>
-            <ComboBoxItem Content="Transfer" FontSize="16"/>
+            
         </ComboBox>
 
         <Button x:Name="btnEdit"
