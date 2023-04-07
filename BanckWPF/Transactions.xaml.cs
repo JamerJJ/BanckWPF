@@ -56,26 +56,53 @@ namespace BanckWPF
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            Binding bs = new Binding();
+            //Binding bs = new Binding();
+
+            //da = new SqlDataAdapter();
+            //dt = new DataTable();
+
+            //string tranType = cboSearch.SelectedItem.ToString();
+
+            //SqlCommand cmd = dao.OpenCon().CreateCommand();
+            //cmd.CommandText = "uspTransactionType";
+            //cmd.CommandType = CommandType.StoredProcedure;
+
+            //cmd.Parameters.AddWithValue("@tranType", tranType);
+
+            //da.SelectCommand = cmd;
+            //da.Fill(dt);
+
+            //dgvTransactions.ItemsSource = dt.DefaultView;
+            //da.Update(dt);
+            //dao.CloseCon();
+            dgvTransactions.DataContext = Show();
+
+        }
+
+        
+        DataTable Show()
+        {
             da = new SqlDataAdapter();
             dt = new DataTable();
 
-            string tranType = cboSearch.SelectedItem.ToString(); 
-
+            string tranType = cboSearch.SelectedItem.ToString();
             SqlCommand cmd = dao.OpenCon().CreateCommand();
             cmd.CommandText = "uspTransactionType";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@tranType", tranType);
 
+            dao.OpenCon();
             da.SelectCommand = cmd;
             da.Fill(dt);
-            bs.Source = dt;
-
             dgvTransactions.ItemsSource = dt.DefaultView;
-            dao.CloseCon();
-        }
+            da.Update(dt);
 
+            dao.CloseCon();
+
+            return dt;
+
+        }
         private void btnAllTran_Click(object sender, RoutedEventArgs e)
         {
             Binding bs = new Binding();
