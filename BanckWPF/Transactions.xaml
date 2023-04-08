@@ -228,7 +228,7 @@
 
 
         <DataGrid x:Name="dgvTransactions"
-                  Margin="25,125,24,175"
+                  Margin="25,125,24,175" SelectionChanged="dgvTransactions_SelectionChanged"
                   />
 
         <Button x:Name="btnAllAcc" 

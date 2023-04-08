@@ -175,5 +175,11 @@ namespace BanckWPF
             string[] comboItems = new string[] { "New Account", "Deposit", "Withdraw", "Transfer" };
             cboSearch.ItemsSource = comboItems;
         }
+
+        private void dgvTransactions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+
+        }
     }
 }
