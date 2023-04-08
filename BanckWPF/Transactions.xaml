@@ -271,7 +271,9 @@
         </Button>
 
         <ComboBox x:Name="cboSearch"
-                  Margin="180,511,250,49" FontSize="18" SelectedIndex="0" FontWeight="Bold" Loaded="cboSearch_Loaded" 
+                  Margin="180,511,250,49" FontSize="18" 
+                  SelectedIndex="0"                   
+                  Loaded="cboSearch_Loaded" 
                   >
 
             

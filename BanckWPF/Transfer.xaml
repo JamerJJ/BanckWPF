@@ -239,8 +239,9 @@
 
         <ComboBox x:Name="cboFromAccount" 
                   Height="30"
-                  Margin="164,133,35,337" SelectionChanged="cboFromAccount_SelectionChanged" 
-                  />
+                  Margin="164,133,35,337" 
+                  SelectionChanged="cboFromAccount_SelectionChanged" 
+                  Background="Gray"/>
 
         <Label x:Name="lblDisplayFromAcc"
                Height="50"
@@ -248,8 +249,9 @@
                Margin="25,185,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
-               FontSize="20" Width="351"/>
+               Foreground="Gray"
+               FontSize="20" Width="351"
+               VerticalContentAlignment="Center"/>
 
         <Label x:Name="lblDisplayValueFrom"
                Height="50"
@@ -257,8 +259,9 @@
                Margin="381,185,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
-               FontSize="20" Width="144"/>
+               Foreground="Gray"
+               FontSize="20" Width="144"
+               VerticalContentAlignment="Center"/>
 
 
         <Label Content="Amount"
@@ -295,7 +298,9 @@
 
         <ComboBox x:Name="cboToAccount" 
                   Height="30"
-                  Margin="138,328,35,142" SelectionChanged="cboToAccount_SelectionChanged"/>
+                  Margin="138,328,35,142" 
+                  SelectionChanged="cboToAccount_SelectionChanged"
+                  Background="Gray"/>
 
         <Label x:Name="lblDisplayToAcc"
                Height="50"
@@ -303,8 +308,9 @@
                Margin="25,386,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
-               FontSize="20" Width="351"/>
+               Foreground="Gray"
+               FontSize="20" Width="351"
+               VerticalContentAlignment="Center"/>
 
         <Label x:Name="lblDisplayValueTo"
                Height="50"
@@ -312,8 +318,9 @@
                Margin="381,386,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
-               FontSize="20" Width="144"/>
+               Foreground="Gray"
+               FontSize="20" Width="144"
+               VerticalContentAlignment="Center"/>
 
         <Button x:Name="btnTransfer"
                 Content="Transfer"

@@ -127,24 +127,52 @@ namespace BanckWPF
 
         private void btnDeposit_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Deposit d = new Deposit();
             d.Show();
         }
 
         private void btnTransferMenu_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Transfer t = new Transfer();
             t.Show();
         }
 
         private void btnWithdraw_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Withdraw w = new Withdraw();
             w.Show();
         }
 
         private void btnTransactions_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Transactions tr = new Transactions();
             tr.Show();
         }

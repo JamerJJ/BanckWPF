@@ -108,10 +108,22 @@ namespace BanckWPF
                 MessageBox.Show("Invalid");
             }
             dao.CloseCon();
+
+            Transactions t = new Transactions();
+            t.Show();
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            foreach(Window window in Application.Current.Windows)
+            {
+                if(window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
+
             NewAccount na = new NewAccount();
             na.Show();
 
@@ -120,18 +132,39 @@ namespace BanckWPF
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Deposit d = new Deposit();
             d.Show();
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Transfer t = new Transfer();
             t.Show();
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window != Application.Current.MainWindow)
+                {
+                    window.Close();
+                }
+            }
             Withdraw w = new Withdraw();
             w.Show();
         }
