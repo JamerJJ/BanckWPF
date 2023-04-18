@@ -108,9 +108,7 @@ namespace BanckWPF
                 MessageBox.Show("Invalid");
             }
             dao.CloseCon();
-
-            Transactions t = new Transactions();
-            t.Show();
+                        
 
         }
 

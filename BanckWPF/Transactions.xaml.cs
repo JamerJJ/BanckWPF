@@ -206,14 +206,14 @@ namespace BanckWPF
 
         private void dgvTransactions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //DataRowView dv = (DataRowView)dgvTransactions.SelectedItem;
+            DataRowView dv = (DataRowView)dgvTransactions.SelectedItem;
 
-            //if (dv != null)
-            //{
-            //    txtfirstn.Text = dv.Row.ItemArray[1].ToString();
-            //    txtsurn.Text = dv.Row.ItemArray[2].ToString();
-            //    txtinitbaal.Text = dv.Row.ItemArray[11].ToString();
-            //}
+            if (dv != null)
+            {
+                txtfirstn.Text = dv.Row.ItemArray[1].ToString();
+                txtsurn.Text = dv.Row.ItemArray[2].ToString();
+                txtemail.Text = dv.Row.ItemArray[3].ToString();
+            }
 
 
         }

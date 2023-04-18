@@ -243,7 +243,8 @@
                Margin="25,182,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
+               Foreground="Gray"
+               VerticalContentAlignment="Center"
                FontSize="20" Width="500"/>
 
         <Label Content="Amount"
@@ -292,12 +293,13 @@
                />
 
         <Label x:Name="lblDisplayAcc"
-               Height="30"
+               Height="40"
                HorizontalAlignment="Left" 
-               Margin="378,319,0,0" 
+               Margin="378,316,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
+               Foreground="Gray"
+               VerticalContentAlignment="Center"
                FontSize="20" Width="147"/>
 
 

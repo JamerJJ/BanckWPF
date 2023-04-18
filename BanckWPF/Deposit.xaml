@@ -246,12 +246,13 @@
             Foreground="Gray" SelectionChanged="cboAccNum_SelectionChanged"/>
 
         <Label x:Name="lblDisplayName"
-               Height="30"
+               Height="40"
                HorizontalAlignment="Left" 
                Margin="35,196,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
+               Foreground="Gray"
+               VerticalContentAlignment="Center"
                FontSize="20" Width="490"/>
 
         <Label Content="Deposit Amount" 
@@ -264,8 +265,8 @@
 
         <TextBox x:Name="txtDeposit" 
                  HorizontalAlignment="Left" 
-                 Height="30" 
-                 Margin="201,262,0,0" 
+                 Height="40" 
+                 Margin="201,252,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Width="324" 
@@ -299,12 +300,13 @@
                FontSize="20"/>
 
         <Label x:Name="lblDisplayBalance"
-               Height="30"
+               Height="40"
                HorizontalAlignment="Left" 
-               Margin="118,331,0,0" 
+               Margin="118,321,0,0" 
                VerticalAlignment="Top" 
                Background="#FFEDFF7A" 
-               Foreground="White"
+               Foreground="Gray"
+               VerticalContentAlignment="Center"
                FontSize="20" Width="257"/>
 
 

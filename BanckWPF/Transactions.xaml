@@ -276,7 +276,7 @@
                   Loaded="cboSearch_Loaded" 
                   >
 
-            
+
         </ComboBox>
 
         <Button x:Name="btnEdit"
@@ -291,6 +291,48 @@
                 FontSize="15" Click="btnEdit_Click">
 
         </Button>
+
+        <TextBox x:Name="txtfirstn"
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="564,442,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="162" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <TextBox x:Name="txtsurn"
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="564,477,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="162" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
+
+        <TextBox x:Name="txtemail"
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="564,512,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="162" 
+            MinWidth="120" 
+            Background="#FFEDFF7A" 
+            TextAlignment="Left"
+            VerticalContentAlignment="Center"              
+            Foreground="Gray"
+            FontSize="20"/>
 
 
 
